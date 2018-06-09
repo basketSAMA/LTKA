@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.a92317.ltka">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="爱记账"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/FontStyle">
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Mine"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Text"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".MyView"
+            android:launchMode="singleTask" />
+        <activity android:name=".AboutUs" />
+        <activity android:name=".AddOne" />
+        <activity android:name=".Article1" />
+        <activity android:name=".Article2" />
+        <activity android:name=".Article3" />
+        <activity android:name=".Article4" />
+        <activity android:name=".Article5" />
+        <activity android:name=".Article6" />
+        <activity android:name=".Article7" />
+        <activity android:name=".Article8" />
+        <activity android:name=".Article9" />
+        <activity android:name=".Settings"></activity>
+    </application>
+
+</manifest>
