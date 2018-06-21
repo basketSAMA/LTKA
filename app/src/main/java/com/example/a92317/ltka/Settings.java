@@ -38,8 +38,8 @@ public class Settings extends BaseActivity implements View.OnClickListener {
         userImage = (ImageView)findViewById(R.id.display_user_image);
         userName = (EditText)findViewById(R.id.display_user_name);
         SharedPreferences preferences = getSharedPreferences("data",MODE_PRIVATE);
-        int uImage = preferences.getInt("uImage",R.drawable.d1);
-        String uName = preferences.getString("uName","user");
+        uImage = preferences.getInt("uImage",R.drawable.d1);
+        uName = preferences.getString("uName","user");
         Drawable d = this.getResources().getDrawable(uImage);
         userImage.setImageDrawable(d);
         userName.setText(uName);
