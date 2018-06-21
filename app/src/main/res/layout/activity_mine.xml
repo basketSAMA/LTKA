@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/mine_background">
 
     <include layout="@layout/title" />
 
@@ -23,7 +24,7 @@
                 android:layout_weight="3">
 
                 <ImageView
-                    android:id="@+id/uesr_image"
+                    android:id="@+id/user_image"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -46,7 +47,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.5"></LinearLayout>
+                android:layout_weight="0.5"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -54,13 +55,6 @@
                 android:layout_weight="6"
                 android:alpha="0.7"
                 android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/share"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="分享"
-                    android:textSize="25dp" />
 
                 <Button
                     android:id="@+id/settings"

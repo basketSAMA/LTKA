@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/my_view_background">
 
     <include layout="@layout/title" />
 
@@ -16,6 +17,13 @@
             android:layout_height="0dp"
             android:layout_weight="11"
             android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/my_view_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
 
 
         </LinearLayout>

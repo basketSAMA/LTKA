@@ -3,6 +3,7 @@
     package="com.example.a92317.ltka">
 
     <application
+        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="爱记账"
@@ -28,17 +29,11 @@
             android:name=".MyView"
             android:launchMode="singleTask" />
         <activity android:name=".AboutUs" />
-        <activity android:name=".AddOne" />
-        <activity android:name=".Article1" />
-        <activity android:name=".Article2" />
-        <activity android:name=".Article3" />
-        <activity android:name=".Article4" />
-        <activity android:name=".Article5" />
-        <activity android:name=".Article6" />
-        <activity android:name=".Article7" />
-        <activity android:name=".Article8" />
-        <activity android:name=".Article9" />
-        <activity android:name=".Settings"></activity>
+        <activity android:name=".AddOne"
+            android:launchMode="singleTop"/>
+        <activity android:name=".Settings" />
+        <activity android:name=".BillDetails"/>
+        <activity android:name=".ArticleDetails"/>
     </application>
 
 </manifest>

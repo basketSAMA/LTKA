@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="110dp">
+
+    <TextView
+        android:id="@+id/money_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/my_view_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:textSize="40sp"
+        android:layout_toRightOf="@id/money_symbol"/>
+
+    <TextView
+        android:id="@+id/my_view_remarks"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="remarks"
+        android:ellipsize="end"
+        android:textSize="20sp"
+        android:layout_below="@id/money_symbol"/>
+
+    <TextView
+        android:id="@+id/my_view_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:textSize="20sp"
+        android:layout_below="@id/my_view_sum"
+        android:layout_alignParentRight="true"/>
+
+    <!--<Button-->
+        <!--android:id="@+id/my_view_remove"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="删除"-->
+        <!--android:layout_alignParentRight="true"-->
+
+        <!--android:background="@color/colorTransparent"-->
+        <!--android:textColor="@color/colorAccent" />-->
+
+</RelativeLayout>

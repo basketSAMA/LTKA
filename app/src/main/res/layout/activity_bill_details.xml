@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bill_details_background">
+    <include layout="@layout/title" />
+
+    <TextView
+        android:id="@+id/money_symbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="￥"
+        android:textSize="50sp"
+        android:layout_toLeftOf="@id/bill_sum"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/bill_sum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sum"
+        android:textSize="50sp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:layout_marginTop="80dp"/>
+
+    <TextView
+        android:id="@+id/bill_remarks"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="remarks"
+        android:ellipsize="end"
+        android:textSize="40sp"
+        android:layout_below="@id/money_symbol"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/bill_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:textSize="30sp"
+        android:layout_below="@id/bill_remarks"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/bill_remove"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:textColor="@color/colorAccent"
+        android:textSize="30sp"
+        android:background="@color/colorTransparent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"/>
+
+    <Button
+        android:id="@+id/bill_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="修改"
+        android:textColor="@color/colorTextGreen"
+        android:textSize="30sp"
+        android:background="@color/colorTransparent"
+        android:layout_above="@id/bill_remove"/>
+
+</RelativeLayout>

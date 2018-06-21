@@ -6,9 +6,22 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MyView extends BaseActivity implements View.OnClickListener{
+import org.litepal.crud.DataSupport;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+public class MyView extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
+
+    public static List<Bill> bills;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +45,25 @@ public class MyView extends BaseActivity implements View.OnClickListener{
     }
 
     @Override
+    protected void onResume(){
+        super.onResume();
+        bills = DataSupport.findAll(Bill.class);
+        Toast.makeText(MyView.this,"更新数据",Toast.LENGTH_SHORT).show();
+        BillAdapter billAdapter=new BillAdapter(MyView.this,R.layout.bill_item,bills);
+        ListView listview = (ListView) findViewById(R.id.my_view_list_view);
+        listview.setAdapter(billAdapter);
+        listview.setOnItemClickListener(this);
+    }
+
+    public void onItemClick(AdapterView<?> parent, View view, final int position, long id){
+
+        Intent intent = new Intent(MyView.this,BillDetails.class);
+        intent.putExtra("billPosition",position);
+        startActivity(intent);
+
+    }
+
+    @Override
     public void onClick(View v){
         switch (v.getId()){
             case R.id.title_back:
@@ -50,7 +82,7 @@ public class MyView extends BaseActivity implements View.OnClickListener{
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
-                });;
+                });
                 dialog.show();
                 break;
             case R.id.home:

@@ -7,17 +7,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Text extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
-
-
-    private List<Article> articleList=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +24,9 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
         }
 
         //文章
-        initArticles();
-        ArticleAdapter articleAdapter=new ArticleAdapter(Text.this,R.layout.article_item,articleList);
+        InitArticles temp = InitArticles.initArticles(this);
+        List<Article> articleList = temp.getArticleList();
+        ArticleAdapter articleAdapter=new ArticleAdapter(Text.this,R.layout.article_item, articleList);
         ListView listview = (ListView) findViewById(R.id.list_view);
         listview.setAdapter(articleAdapter);
         listview.setOnItemClickListener(this);
@@ -49,7 +45,8 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
 
     @Override
     public void onItemClick(AdapterView<?> parent,View view,int position,long id){
-        Intent intent = new Intent(Text.this, MainActivity.demos[position].demoClass);
+        Intent intent = new Intent(Text.this, ArticleDetails.class);
+        intent.putExtra("articlePosition",position);
         startActivity(intent);
     }
 
@@ -90,36 +87,5 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
             default:
                 break;
         }
-    }
-
-    private void initArticles(){
-        Article article1=new Article((String) this.getResources().getText(R.string.article1_name),
-                (String) this.getResources().getText(R.string.article1_author));
-        Article article2=new Article((String) this.getResources().getText(R.string.article2_name),
-                (String) this.getResources().getText(R.string.article2_author));
-        Article article3=new Article((String) this.getResources().getText(R.string.article3_name),
-                (String) this.getResources().getText(R.string.article3_author));
-        Article article4=new Article((String) this.getResources().getText(R.string.article4_name),
-                (String) this.getResources().getText(R.string.article4_author));
-        Article article5=new Article((String) this.getResources().getText(R.string.article5_name),
-                (String) this.getResources().getText(R.string.article5_author));
-        Article article6=new Article((String) this.getResources().getText(R.string.article6_name),
-                (String) this.getResources().getText(R.string.article6_author));
-        Article article7=new Article((String) this.getResources().getText(R.string.article7_name),
-                (String) this.getResources().getText(R.string.article7_author));
-        Article article8=new Article((String) this.getResources().getText(R.string.article8_name),
-                (String) this.getResources().getText(R.string.article8_author));
-        Article article9=new Article((String) this.getResources().getText(R.string.article9_name),
-                (String) this.getResources().getText(R.string.article9_author) );
-
-        articleList.add(article1);
-        articleList.add(article2);
-        articleList.add(article3);
-        articleList.add(article4);
-        articleList.add(article5);
-        articleList.add(article6);
-        articleList.add(article7);
-        articleList.add(article8);
-        articleList.add(article9);
     }
 }

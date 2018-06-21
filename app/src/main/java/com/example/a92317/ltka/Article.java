@@ -6,9 +6,12 @@ public class Article {
 
     private String author;
 
-    public Article(String name,String author){
+    private String contents;
+
+    public Article(String name,String author, String contents){
         this.name=name;
         this.author=author;
+        this.contents=contents;
     }
     public String getName(){
         return name;
@@ -17,4 +20,6 @@ public class Article {
     public String getAuthor() {
         return "作者："+author;
     }
+
+    public String getContents() { return contents; }
 }
