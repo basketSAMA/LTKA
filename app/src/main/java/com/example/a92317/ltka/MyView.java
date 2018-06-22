@@ -3,20 +3,16 @@ package com.example.a92317.ltka;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import org.litepal.crud.DataSupport;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class MyView extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
@@ -28,11 +24,6 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_view);
 
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null) {
-            actionBar.hide();
-        }
-
         Button button_back=(Button)findViewById(R.id.title_back);
         Button button_home=(Button)findViewById(R.id.home);
         Button button_text=(Button)findViewById(R.id.text);
@@ -42,14 +33,21 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
         button_home.setOnClickListener(this);
         button_text.setOnClickListener(this);
         button_mine.setOnClickListener(this);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(this);
     }
 
     @Override
     protected void onResume(){
         super.onResume();
         bills = DataSupport.findAll(Bill.class);
-        Toast.makeText(MyView.this,"更新数据",Toast.LENGTH_SHORT).show();
-        BillAdapter billAdapter=new BillAdapter(MyView.this,R.layout.bill_item,bills);
+        List<Bill> reverseBills = new ArrayList<>();
+        for(int i = bills.size() - 1; i >= 0; i--)
+        {
+            reverseBills.add(bills.get(i));
+        }
+        BillAdapter billAdapter=new BillAdapter(MyView.this,R.layout.bill_item,reverseBills);
         ListView listview = (ListView) findViewById(R.id.my_view_list_view);
         listview.setAdapter(billAdapter);
         listview.setOnItemClickListener(this);
@@ -58,7 +56,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
     public void onItemClick(AdapterView<?> parent, View view, final int position, long id){
 
         Intent intent = new Intent(MyView.this,BillDetails.class);
-        intent.putExtra("billPosition",position);
+        intent.putExtra("billPosition",MyView.bills.size() - 1 - position);
         startActivity(intent);
 
     }
@@ -96,6 +94,10 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
             case R.id.mine:
                 Intent intentM=new Intent(MyView.this,Mine.class);
                 startActivity(intentM);
+                break;
+            case R.id.fab:
+                Intent intentA=new Intent(MyView.this,AddOne.class);
+                startActivity(intentA);
                 break;
             default:
                 break;

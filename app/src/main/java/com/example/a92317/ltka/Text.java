@@ -18,11 +18,6 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text);
 
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null) {
-            actionBar.hide();
-        }
-
         //文章
         InitArticles temp = InitArticles.initArticles(this);
         List<Article> articleList = temp.getArticleList();

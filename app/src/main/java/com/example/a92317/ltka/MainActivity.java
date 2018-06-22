@@ -22,12 +22,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
 
         LitePal.getDatabase();
 
-        //隐藏原标题栏
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-
         //文章
         InitArticles temp = InitArticles.initArticles(this);
         List<Article> articleList = temp.getArticleList();
