@@ -40,11 +40,20 @@ public class Settings extends BaseActivity implements View.OnClickListener {
         ImageButton d1 = (ImageButton) findViewById(R.id.image_d1);
         ImageButton d2 = (ImageButton) findViewById(R.id.image_d2);
         ImageButton d3 = (ImageButton) findViewById(R.id.image_d3);
+        ImageButton d4 = (ImageButton) findViewById(R.id.image_d4);
+        ImageButton d5 = (ImageButton) findViewById(R.id.image_d5);
+        ImageButton d6 = (ImageButton) findViewById(R.id.image_d6);
+        ImageButton d7 = (ImageButton) findViewById(R.id.image_d7);
+        ImageButton d8 = (ImageButton) findViewById(R.id.image_d8);
+        ImageButton d9 = (ImageButton) findViewById(R.id.image_d9);
         ImageButton d10 = (ImageButton) findViewById(R.id.image_d10);
         ImageButton d11 = (ImageButton) findViewById(R.id.image_d11);
         ImageButton d12 = (ImageButton) findViewById(R.id.image_d12);
-        ImageButton d7 = (ImageButton) findViewById(R.id.image_d7);
-        ImageButton d8 = (ImageButton) findViewById(R.id.image_d8);
+        ImageButton d13 = (ImageButton) findViewById(R.id.image_d13);
+        ImageButton d14 = (ImageButton) findViewById(R.id.image_d14);
+        ImageButton d15 = (ImageButton) findViewById(R.id.image_d15);
+        ImageButton d16 = (ImageButton) findViewById(R.id.image_d16);
+        ImageButton d17 = (ImageButton) findViewById(R.id.image_d17);
         ImageButton d18 = (ImageButton) findViewById(R.id.image_d18);
 
         save.setOnClickListener(this);
@@ -52,11 +61,20 @@ public class Settings extends BaseActivity implements View.OnClickListener {
         d1.setOnClickListener(this);
         d2.setOnClickListener(this);
         d3.setOnClickListener(this);
+        d4.setOnClickListener(this);
+        d5.setOnClickListener(this);
+        d6.setOnClickListener(this);
         d7.setOnClickListener(this);
         d8.setOnClickListener(this);
+        d9.setOnClickListener(this);
         d10.setOnClickListener(this);
         d11.setOnClickListener(this);
         d12.setOnClickListener(this);
+        d13.setOnClickListener(this);
+        d14.setOnClickListener(this);
+        d15.setOnClickListener(this);
+        d16.setOnClickListener(this);
+        d17.setOnClickListener(this);
         d18.setOnClickListener(this);
     }
 
@@ -125,6 +143,30 @@ public class Settings extends BaseActivity implements View.OnClickListener {
                 uImage = R.drawable.d3;
                 show();
                 break;
+            case R.id.image_d4:
+                uImage = R.drawable.d4;
+                show();
+                break;
+            case R.id.image_d5:
+                uImage = R.drawable.d5;
+                show();
+                break;
+            case R.id.image_d6:
+                uImage = R.drawable.d6;
+                show();
+                break;
+            case R.id.image_d7:
+                uImage = R.drawable.d7;
+                show();
+                break;
+            case R.id.image_d8:
+                uImage = R.drawable.d8;
+                show();
+                break;
+            case R.id.image_d9:
+                uImage = R.drawable.d9;
+                show();
+                break;
             case R.id.image_d10:
                 uImage = R.drawable.d10;
                 show();
@@ -137,12 +179,24 @@ public class Settings extends BaseActivity implements View.OnClickListener {
                 uImage = R.drawable.d12;
                 show();
                 break;
-            case R.id.image_d7:
-                uImage = R.drawable.d7;
+            case R.id.image_d13:
+                uImage = R.drawable.d13;
                 show();
                 break;
-            case R.id.image_d8:
-                uImage = R.drawable.d8;
+            case R.id.image_d14:
+                uImage = R.drawable.d14;
+                show();
+                break;
+            case R.id.image_d15:
+                uImage = R.drawable.d15;
+                show();
+                break;
+            case R.id.image_d16:
+                uImage = R.drawable.d16;
+                show();
+                break;
+            case R.id.image_d17:
+                uImage = R.drawable.d17;
                 show();
                 break;
             case R.id.image_d18:

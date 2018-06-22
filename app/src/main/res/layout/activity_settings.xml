@@ -14,16 +14,18 @@
         android:layout_weight="6"
         android:orientation="horizontal">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_weight="3">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="100dp">
 
                 <ImageButton
                     android:id="@+id/image_d1"
@@ -48,8 +50,57 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="100dp">
+
+                <ImageButton
+                    android:id="@+id/image_d4"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d4"/>
+                <ImageButton
+                    android:id="@+id/image_d5"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d5"/>
+                <ImageButton
+                    android:id="@+id/image_d6"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d6"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <ImageButton
+                    android:id="@+id/image_d7"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d7"/>
+                <ImageButton
+                    android:id="@+id/image_d8"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d8"/>
+                <ImageButton
+                    android:id="@+id/image_d9"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d9"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
 
                 <ImageButton
                     android:id="@+id/image_d10"
@@ -74,21 +125,45 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_height="100dp">
 
                 <ImageButton
-                    android:id="@+id/image_d7"
+                    android:id="@+id/image_d13"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:src="@drawable/d7"/>
+                    android:src="@drawable/d13"/>
                 <ImageButton
-                    android:id="@+id/image_d8"
+                    android:id="@+id/image_d14"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="match_parent"
-                    android:src="@drawable/d8"/>
+                    android:src="@drawable/d14"/>
+                <ImageButton
+                    android:id="@+id/image_d15"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d15"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp">
+
+                <ImageButton
+                    android:id="@+id/image_d16"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d16"/>
+                <ImageButton
+                    android:id="@+id/image_d17"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/d17"/>
                 <ImageButton
                     android:id="@+id/image_d18"
                     android:layout_width="0dp"
@@ -98,6 +173,7 @@
 
             </LinearLayout>
         </LinearLayout>
+        </ScrollView>
 
         <RelativeLayout
             android:layout_width="0dp"
