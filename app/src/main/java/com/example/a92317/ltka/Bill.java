@@ -36,7 +36,7 @@ public class Bill extends DataSupport{
     }
 
     public String getTime() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd/HH:mm:ss");
         String str = formatter.format(time);
         return str;
     }

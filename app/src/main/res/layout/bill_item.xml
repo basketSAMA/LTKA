@@ -19,23 +19,29 @@
         android:textSize="40sp"
         android:layout_toRightOf="@id/money_symbol"/>
 
-    <TextView
-        android:id="@+id/my_view_remarks"
-        android:layout_width="150dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="remarks"
-        android:ellipsize="end"
-        android:textSize="20sp"
-        android:layout_below="@id/money_symbol"/>
+        android:layout_below="@id/money_symbol">
 
-    <TextView
-        android:id="@+id/my_view_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="time"
-        android:textSize="20sp"
-        android:layout_below="@id/my_view_sum"
-        android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/my_view_remarks"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="remarks"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/my_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:textSize="20sp" />
+
+    </LinearLayout>
 
     <!--<Button-->
         <!--android:id="@+id/my_view_remove"-->

@@ -26,44 +26,59 @@
         android:textStyle="bold"
         android:layout_marginTop="80dp"/>
 
-    <TextView
-        android:id="@+id/bill_remarks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="remarks"
-        android:ellipsize="end"
-        android:textSize="40sp"
+    <LinearLayout
         android:layout_below="@id/money_symbol"
-        android:layout_centerHorizontal="true"/>
-
-    <TextView
-        android:id="@+id/bill_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="time"
-        android:textSize="30sp"
-        android:layout_below="@id/bill_remarks"
-        android:layout_centerHorizontal="true" />
-
-    <Button
-        android:id="@+id/bill_remove"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="删除"
-        android:textColor="@color/colorAccent"
-        android:textSize="30sp"
-        android:background="@color/colorTransparent"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bill_update"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="修改"
-        android:textColor="@color/colorTextGreen"
-        android:textSize="30sp"
-        android:background="@color/colorTransparent"
-        android:layout_above="@id/bill_remove"/>
+        <ScrollView
+            android:id="@+id/scroll_view_remarks"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_width="300dp"
+            android:layout_height="0dp"
+            android:layout_weight="6">
+
+            <TextView
+                android:id="@+id/bill_remarks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="remarks"
+                android:textSize="40sp" />
+
+        </ScrollView>
+        <TextView
+            android:id="@+id/bill_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.7"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="time"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/bill_remove"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="删除"
+            android:textColor="@color/colorAccent"
+            android:textSize="30sp"
+            android:background="@color/colorTransparent" />
+
+        <Button
+            android:id="@+id/bill_update"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="修改"
+            android:textColor="@color/colorTextGreen"
+            android:textSize="30sp"
+            android:background="@color/colorTransparent" />
+
+    </LinearLayout>
 
 </RelativeLayout>
