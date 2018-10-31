@@ -34,11 +34,6 @@ public class ArticleDetails extends BaseActivity{
         articleAuthor.setText(article.getAuthor());
         articleContents.setText(article.getContents());
 
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null) {
-            actionBar.hide();
-        }
-
         Button button_back=(Button)findViewById(R.id.title_back);
         button_back.setOnClickListener(new View.OnClickListener(){
             @Override

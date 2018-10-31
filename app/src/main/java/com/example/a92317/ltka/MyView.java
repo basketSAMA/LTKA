@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -102,5 +103,29 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
             default:
                 break;
         }
+    }
+
+    //重写onKeyDown方法,对按键(不一定是返回按键)监听
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {//当返回按键被按下
+            AlertDialog.Builder dialog=new AlertDialog.Builder(MyView.this);
+            dialog.setTitle("提示");
+            dialog.setMessage("确定退出吗");
+            dialog.setCancelable(false);
+            dialog.setPositiveButton("退出", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    ActivityCollector.finishAll();
+                }
+            });
+            dialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                }
+            });;
+            dialog.show();
+        }
+        return false;
     }
 }

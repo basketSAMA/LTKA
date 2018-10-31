@@ -22,11 +22,6 @@ public class BillDetails extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bill_details);
 
-        ActionBar actionBar = getSupportActionBar();
-        if(actionBar != null){
-            actionBar.hide();
-        }
-
         billSum = (TextView) findViewById(R.id.bill_sum);
         billRemarks = (TextView) findViewById(R.id.bill_remarks);
         billTime = (TextView) findViewById(R.id.bill_time);

@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorTextGreen</item>
     </style>
     <style name="FontStyle" parent="AppTheme">
-        <item name="android:fontFamily">@font/newfont</item>
+        <item name="android:fontFamily">@font/newfont2</item>
     </style>
 
 </resources>

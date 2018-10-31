@@ -46,5 +46,6 @@ public class BaseActivity extends AppCompatActivity{
         super.onRestart();
         Log.d("BaseActivity:onRestart",getClass().getSimpleName());
     }
+
 }
 
