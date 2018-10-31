@@ -5,19 +5,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.List;
 
-public class Text extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener{
+public class Text extends BaseActivity implements View.OnClickListener,AdapterView.OnItemClickListener,View.OnTouchListener,GestureDetector.OnGestureListener{
+
+    private LinearLayout ll;
+    private ListView lv;
+    private GestureDetector gd;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text);
+
+        ll = (LinearLayout) findViewById(R.id.layout_text);
+        ll.setOnTouchListener(this);
+        ll.setLongClickable(true);
+        lv = (ListView) findViewById(R.id.list_view);
+        lv.setOnTouchListener(this);
+        lv.setLongClickable(true);
+        gd = new GestureDetector((GestureDetector.OnGestureListener) this);
 
         //文章
         InitArticles temp = InitArticles.initArticles(this);
@@ -107,5 +123,52 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
             dialog.show();
         }
         return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        final int FLING_MIN_DISTANCE = 100;
+        final int FLING_MIN_VELOCITY = 200;
+        //左
+        if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+            Intent intentV = new Intent(Text.this, Mine.class);
+            startActivity(intentV);
+        }
+        // 右
+        if (e1.getX() - e2.getX() < FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+            Intent intentM = new Intent(Text.this, MyView.class);
+            startActivity(intentM);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return gd.onTouchEvent(event);
     }
 }

@@ -6,14 +6,19 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.view.GestureDetector;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class Mine extends BaseActivity implements View.OnClickListener{
+public class Mine extends BaseActivity implements View.OnClickListener,View.OnTouchListener,GestureDetector.OnGestureListener {
 
+    private LinearLayout ll;
+    private GestureDetector gd;
     private ImageView userImage;
     private TextView userName;
 
@@ -21,6 +26,11 @@ public class Mine extends BaseActivity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mine);
+
+        ll = (LinearLayout) findViewById(R.id.layout_mine);
+        ll.setOnTouchListener(this);
+        ll.setLongClickable(true);
+        gd = new GestureDetector((GestureDetector.OnGestureListener) this);
 
         userImage = (ImageView)findViewById(R.id.user_image);
         userName = (TextView)findViewById(R.id.user_name);
@@ -144,5 +154,52 @@ public class Mine extends BaseActivity implements View.OnClickListener{
             dialog.show();
         }
         return false;
+    }
+
+    @Override
+    public boolean onDown(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public void onShowPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onSingleTapUp(MotionEvent e) {
+        return false;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        return false;
+    }
+
+    @Override
+    public void onLongPress(MotionEvent e) {
+
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+        final int FLING_MIN_DISTANCE = 100;
+        final int FLING_MIN_VELOCITY = 200;
+        //左
+        if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+            Intent intentV = new Intent(Mine.this, MainActivity.class);
+            startActivity(intentV);
+        }
+        // 右
+        if (e1.getX() - e2.getX() < FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+            Intent intentM = new Intent(Mine.this, Text.class);
+            startActivity(intentM);
+        }
+        return false;
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        return gd.onTouchEvent(event);
     }
 }
