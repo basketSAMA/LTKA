@@ -13,6 +13,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.nightonke.boommenu.BoomButtons.BoomButton;
+import com.nightonke.boommenu.BoomButtons.HamButton;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
+import com.nightonke.boommenu.BoomMenuButton;
 
 import org.litepal.crud.DataSupport;
 
@@ -24,7 +30,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
     public static List<Bill> bills;
 
     private ListView lv;
-    private FloatingActionButton fab;
+    private BoomMenuButton bmb;
     private GestureDetector gd;
 
     @Override
@@ -35,6 +41,47 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
         lv=(ListView)findViewById(R.id.my_view_list_view);
         lv.setOnTouchListener(this);
         lv.setLongClickable(true);
+
+        bmb=(BoomMenuButton)findViewById(R.id.bmb);
+
+        HamButton.Builder builder0 = new HamButton.Builder()
+                .normalImageRes(R.drawable.ic_add)
+                .normalText("新增")
+                .subNormalText("再新增一条吧喵")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        Intent intentA=new Intent(MyView.this,AddOne.class);
+                        startActivity(intentA);
+                    }
+                });
+        bmb.addBuilder(builder0);
+
+        HamButton.Builder builder1 = new HamButton.Builder()
+                .normalImageRes(R.drawable.ic_chart)
+                .normalText("图表")
+                .subNormalText("直观的看账单哦喵")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        // When the boom-button corresponding this builder is clicked.
+                        Toast.makeText(MyView.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+                    }
+                });
+        bmb.addBuilder(builder1);
+
+        HamButton.Builder builder2 = new HamButton.Builder()
+                .normalImageRes(R.drawable.ic_analysis)
+                .normalText("分析")
+                .subNormalText("想测测你是什么类型吗喵")
+                .listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        // When the boom-button corresponding this builder is clicked.
+                        Toast.makeText(MyView.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+                    }
+                });
+        bmb.addBuilder(builder2);
 
         gd = new GestureDetector((GestureDetector.OnGestureListener) this);
 
@@ -109,8 +156,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
                 startActivity(intentM);
                 break;
             case R.id.fab:
-                Intent intentA=new Intent(MyView.this,AddOne.class);
-                startActivity(intentA);
+                bmb.boom();
                 break;
             default:
                 break;
@@ -135,7 +181,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
                 public void onClick(DialogInterface dialogInterface, int i) {
 
                 }
-            });;
+            });
             dialog.show();
         }
         return false;

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/my_view_background"
     android:id="@+id/layout_my_view">
@@ -12,87 +13,100 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginRight="7dp"
-        android:layout_marginTop="7dp"
-        android:alpha="0.6"
-        android:src="@drawable/ic_done" />
+        <com.nightonke.boommenu.BoomMenuButton
+            android:id="@+id/bmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="60dp"
+            app:bmb_normalColor="@color/colorWhite"
+            app:bmb_buttonEnum="ham"
+            app:bmb_piecePlaceEnum="piecePlace_ham_3"
+            app:bmb_buttonPlaceEnum="buttonPlace_ham_3"
+            />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="60dp"
+            android:alpha="0"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="11"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ListView
-                android:id="@+id/my_view_list_view"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="0dp"
+                android:layout_weight="11"
+                android:orientation="vertical">
 
-            </ListView>
+                <ListView
+                    android:id="@+id/my_view_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </ListView>
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/home"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.5"
+                    android:background="@color/colorBackgroundGreen"
+                    android:text="&#9752;"
+                    android:textColor="@color/colorTextGreen"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:id="@+id/face_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colorBackgroundGreen"
+                    android:text="&#10048;"
+                    android:textColor="@color/colorTextGreen"
+                    android:textSize="25dp" />
+
+                <Button
+                    android:id="@+id/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.5"
+                    android:background="@color/colorBackgroundGreen"
+                    android:text="&#9770;"
+                    android:textColor="@color/colorTextGreen"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:id="@+id/mine"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alpha="0.5"
+                    android:background="@color/colorBackgroundGreen"
+                    android:text="&#9812;"
+                    android:textColor="@color/colorTextGreen"
+                    android:textSize="20dp" />
+
+            </LinearLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/home"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:alpha="0.5"
-                android:background="@color/colorBackgroundGreen"
-                android:text="&#9752;"
-                android:textColor="@color/colorTextGreen"
-                android:textSize="20dp" />
-
-            <Button
-                android:id="@+id/face_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/colorBackgroundGreen"
-                android:text="&#10048;"
-                android:textColor="@color/colorTextGreen"
-                android:textSize="25dp" />
-
-            <Button
-                android:id="@+id/text"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:alpha="0.5"
-                android:background="@color/colorBackgroundGreen"
-                android:text="&#9770;"
-                android:textColor="@color/colorTextGreen"
-                android:textSize="20dp" />
-
-            <Button
-                android:id="@+id/mine"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:alpha="0.5"
-                android:background="@color/colorBackgroundGreen"
-                android:text="&#9812;"
-                android:textColor="@color/colorTextGreen"
-                android:textSize="20dp" />
-
-        </LinearLayout>
-    </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>
 </LinearLayout>
