@@ -19,6 +19,7 @@
         android:layout_gravity="end"
         android:layout_marginRight="7dp"
         android:layout_marginTop="7dp"
+        android:alpha="0.6"
         android:src="@drawable/ic_done" />
 
     <LinearLayout

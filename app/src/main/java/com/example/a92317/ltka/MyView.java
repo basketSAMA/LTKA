@@ -23,8 +23,8 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
 
     public static List<Bill> bills;
 
-    private LinearLayout ll;
     private ListView lv;
+    private FloatingActionButton fab;
     private GestureDetector gd;
 
     @Override
@@ -32,12 +32,10 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_view);
 
-        ll = (LinearLayout) findViewById(R.id.layout_my_view);
-        ll.setOnTouchListener(this);
-        ll.setLongClickable(true);
         lv=(ListView)findViewById(R.id.my_view_list_view);
         lv.setOnTouchListener(this);
         lv.setLongClickable(true);
+
         gd = new GestureDetector((GestureDetector.OnGestureListener) this);
 
         Button button_back=(Button)findViewById(R.id.title_back);
@@ -64,9 +62,8 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
             reverseBills.add(bills.get(i));
         }
         BillAdapter billAdapter=new BillAdapter(MyView.this,R.layout.bill_item,reverseBills);
-        ListView listview = (ListView) findViewById(R.id.my_view_list_view);
-        listview.setAdapter(billAdapter);
-        listview.setOnItemClickListener(this);
+        lv = (ListView) findViewById(R.id.my_view_list_view);
+        lv.setAdapter(billAdapter);
     }
 
     public void onItemClick(AdapterView<?> parent, View view, final int position, long id){
@@ -146,6 +143,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
 
     @Override
     public boolean onDown(MotionEvent e) {
+        lv.setOnItemClickListener(this);
         return false;
     }
 
@@ -171,7 +169,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        final int FLING_MIN_DISTANCE = 100;
+        final int FLING_MIN_DISTANCE = 400;
         final int FLING_MIN_VELOCITY = 200;
         //左
         if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
@@ -179,7 +177,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
             startActivity(intentV);
         }
         // 右
-        if (e1.getX() - e2.getX() < FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+        if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentM = new Intent(MyView.this, MainActivity.class);
             startActivity(intentM);
         }

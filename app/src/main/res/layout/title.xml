@@ -6,11 +6,11 @@
 
     <Button
         android:id="@+id/title_back"
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
-        android:text="&#9668;"
+        android:text="＜"
         android:textColor="@color/colorTextGreen"
-        android:textSize="25dp"
+        android:textSize="20dp"
         android:background="@color/colorTransparent"/>
 
     <TextView
@@ -21,6 +21,7 @@
         android:textColor="@color/colorTextGreen"
         android:textSize="25dp"
         android:layout_gravity="center"
+        android:layout_marginRight="50dp"
         android:layout_weight="1"
         android:gravity="center" />
 

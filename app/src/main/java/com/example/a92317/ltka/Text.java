@@ -39,9 +39,7 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
         InitArticles temp = InitArticles.initArticles(this);
         List<Article> articleList = temp.getArticleList();
         ArticleAdapter articleAdapter=new ArticleAdapter(Text.this,R.layout.article_item, articleList);
-        ListView listview = (ListView) findViewById(R.id.list_view);
-        listview.setAdapter(articleAdapter);
-        listview.setOnItemClickListener(this);
+        lv.setAdapter(articleAdapter);
 
         Button button_back=(Button)findViewById(R.id.title_back);
         Button button_home=(Button)findViewById(R.id.home);
@@ -127,6 +125,7 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
 
     @Override
     public boolean onDown(MotionEvent e) {
+        lv.setOnItemClickListener(this);
         return false;
     }
 
@@ -152,7 +151,7 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        final int FLING_MIN_DISTANCE = 100;
+        final int FLING_MIN_DISTANCE = 400;
         final int FLING_MIN_VELOCITY = 200;
         //左
         if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
@@ -160,7 +159,7 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
             startActivity(intentV);
         }
         // 右
-        if (e1.getX() - e2.getX() < FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+        if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentM = new Intent(Text.this, MyView.class);
             startActivity(intentM);
         }

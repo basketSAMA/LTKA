@@ -183,7 +183,7 @@ public class Mine extends BaseActivity implements View.OnClickListener,View.OnTo
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        final int FLING_MIN_DISTANCE = 100;
+        final int FLING_MIN_DISTANCE = 400;
         final int FLING_MIN_VELOCITY = 200;
         //左
         if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
@@ -191,7 +191,7 @@ public class Mine extends BaseActivity implements View.OnClickListener,View.OnTo
             startActivity(intentV);
         }
         // 右
-        if (e1.getX() - e2.getX() < FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+        if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentM = new Intent(Mine.this, Text.class);
             startActivity(intentM);
         }

@@ -42,9 +42,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
         InitArticles temp = InitArticles.initArticles(this);
         List<Article> articleList = temp.getArticleList();
         ArticleAdapter articleAdapter = new ArticleAdapter(MainActivity.this, R.layout.article_item, articleList);
-        ListView listview = (ListView) findViewById(R.id.list_view);
-        listview.setAdapter(articleAdapter);
-        listview.setOnItemClickListener(this);
+        lv.setAdapter(articleAdapter);
 
         //按钮事件
         Button button_back = (Button) findViewById(R.id.title_back);
@@ -138,6 +136,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
 
     @Override
     public boolean onDown(MotionEvent e) {
+        lv.setOnItemClickListener(this);
         return false;
     }
 
@@ -163,7 +162,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        final int FLING_MIN_DISTANCE = 100;
+        final int FLING_MIN_DISTANCE = 400;
         final int FLING_MIN_VELOCITY = 200;
         //左
         if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
@@ -171,7 +170,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
             startActivity(intentV);
         }
         // 右
-        if (e1.getX() - e2.getX() < FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
+        if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentM = new Intent(MainActivity.this, Mine.class);
             startActivity(intentM);
         }
