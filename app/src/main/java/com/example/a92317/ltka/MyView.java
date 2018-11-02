@@ -146,10 +146,12 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
             case R.id.home:
                 Intent intentH=new Intent(MyView.this,MainActivity.class);
                 startActivity(intentH);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 break;
             case R.id.text:
                 Intent intentT=new Intent(MyView.this,Text.class);
                 startActivity(intentT);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.mine:
                 Intent intentM=new Intent(MyView.this,Mine.class);
@@ -221,11 +223,13 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
         if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentV = new Intent(MyView.this, Text.class);
             startActivity(intentV);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
         // 右
         if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentM = new Intent(MyView.this, MainActivity.class);
             startActivity(intentM);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
         return false;
     }

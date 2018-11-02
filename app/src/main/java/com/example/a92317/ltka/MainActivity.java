@@ -92,6 +92,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
             case R.id.my_view:
                 Intent intentV = new Intent(MainActivity.this, MyView.class);
                 startActivity(intentV);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.text:
                 Intent intentT = new Intent(MainActivity.this, Text.class);
@@ -100,6 +101,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
             case R.id.mine:
                 Intent intentM = new Intent(MainActivity.this, Mine.class);
                 startActivity(intentM);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 break;
             case R.id.keep_accounts:
                 Intent intentK = new Intent(MainActivity.this, AddOne.class);
@@ -168,11 +170,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,A
         if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentV = new Intent(MainActivity.this, MyView.class);
             startActivity(intentV);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
         // 右
         if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentM = new Intent(MainActivity.this, Mine.class);
             startActivity(intentM);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
         return false;
     }

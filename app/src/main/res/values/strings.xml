@@ -2,6 +2,8 @@
     <string name="app_name">LTKA</string>
     <string name="action_settings">Settings</string>
 
+    <integer name="slide_duration">300</integer>
+
     <string name="article1_name">6个习惯让你理财成功一半</string>
     <string name="article1_author">佚名</string>
     <string name="article1_contents">

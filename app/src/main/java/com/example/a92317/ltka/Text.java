@@ -3,7 +3,6 @@ package com.example.a92317.ltka;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
@@ -50,7 +49,6 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
         button_home.setOnClickListener(this);
         button_my_view.setOnClickListener(this);
         button_mine.setOnClickListener(this);
-
     }
 
     @Override
@@ -89,10 +87,12 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
             case R.id.my_view:
                 Intent intentV=new Intent(Text.this,MyView.class);
                 startActivity(intentV);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 break;
             case R.id.mine:
                 Intent intentM=new Intent(Text.this,Mine.class);
                 startActivity(intentM);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             default:
                 break;
@@ -157,11 +157,13 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
         if (e1.getX() - e2.getX() > FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentV = new Intent(Text.this, Mine.class);
             startActivity(intentV);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         }
         // 右
         if (e1.getX() - e2.getX() < -FLING_MIN_DISTANCE && Math.abs(velocityX) > FLING_MIN_VELOCITY) {
             Intent intentM = new Intent(Text.this, MyView.class);
             startActivity(intentM);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
         return false;
     }
