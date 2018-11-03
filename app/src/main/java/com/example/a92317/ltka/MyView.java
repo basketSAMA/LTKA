@@ -11,16 +11,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.nightonke.boommenu.BoomButtons.BoomButton;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomMenuButton;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +40,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
         lv.setOnTouchListener(this);
         lv.setLongClickable(true);
 
-        bmb=(BoomMenuButton)findViewById(R.id.bmb);
+        bmb=(BoomMenuButton)findViewById(R.id.my_view_bmb);
 
         HamButton.Builder builder0 = new HamButton.Builder()
                 .normalImageRes(R.drawable.ic_add)
@@ -102,7 +100,8 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
     @Override
     protected void onResume(){
         super.onResume();
-        bills = DataSupport.findAll(Bill.class);
+        bills = LitePal.findAll(Bill.class);
+
         List<Bill> reverseBills = new ArrayList<>();
         for(int i = bills.size() - 1; i >= 0; i--)
         {
@@ -146,12 +145,10 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
             case R.id.home:
                 Intent intentH=new Intent(MyView.this,MainActivity.class);
                 startActivity(intentH);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 break;
             case R.id.text:
                 Intent intentT=new Intent(MyView.this,Text.class);
                 startActivity(intentT);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.mine:
                 Intent intentM=new Intent(MyView.this,Mine.class);

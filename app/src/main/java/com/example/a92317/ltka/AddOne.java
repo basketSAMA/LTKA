@@ -2,8 +2,11 @@ package com.example.a92317.ltka;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.text.Layout;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +14,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.litepal.crud.DataSupport;
+import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
+import com.nightonke.boommenu.BoomButtons.TextInsideCircleButton;
+import com.nightonke.boommenu.BoomMenuButton;
+
+import org.litepal.LitePal;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AddOne extends BaseActivity implements View.OnClickListener {
 
@@ -19,7 +29,15 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
 
     private TextView displaySum;
     private EditText remarks;
+    private TextView displayClassification;
+    private View displayClassificationColor;
+
     private String sum = "";
+    private BillClassification classification;
+
+    private BoomMenuButton bmb;
+
+    private List<Bill> tests;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +46,43 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
 
         displaySum = (TextView) findViewById(R.id.display_sum);
         remarks = (EditText) findViewById(R.id.add_one_remarks);
+        displayClassification = (TextView)findViewById(R.id.add_one_classification);
+        displayClassificationColor = (View) findViewById(R.id.add_one_color);
+
+        Resources res = this.getResources();
+        classification = new BillClassification(res.getString(R.string.classification_diet), res.getColor(R.color.colorDiet));
+
+        final List<BillClassification> billClassificationList;
+        billClassificationList = new ArrayList<>();
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_diet),res.getColor(R.color.colorDiet)));
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_study),res.getColor(R.color.colorStudy)));
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_entertainment),res.getColor(R.color.colorEntertainment)));
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_traffic),res.getColor(R.color.colorTraffic)));
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_health),res.getColor(R.color.colorHealth)));
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_house),res.getColor(R.color.colorHouse)));
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_favor),res.getColor(R.color.colorFavor)));
+        billClassificationList.add(new BillClassification(res.getString(R.string.classification_else),res.getColor(R.color.colorElse)));
+
+        bmb = (BoomMenuButton) findViewById(R.id.add_one_bmb);
+        for (int i = 0; i < bmb.getPiecePlaceEnum().pieceNumber(); i++) {
+            TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder()
+                    .normalText(billClassificationList.get(i).getClassificationName())
+                    .normalTextColorRes(R.color.colorWhite)
+                    .textSize(15)
+                    .textGravity(Gravity.CENTER)
+                    .normalColor(billClassificationList.get(i).getClassificationColor())
+                    .listener(new OnBMClickListener() {
+                        @Override
+                        public void onBoomButtonClick(int index) {
+                            classification.setClassificationName(billClassificationList.get(index).getClassificationName());
+                            classification.setClassificationColor(billClassificationList.get(index).getClassificationColor());
+                            displayClassification.setText(classification.getClassificationName());
+                            displayClassificationColor.setBackgroundColor(classification.getClassificationColor());
+                        }
+                    });
+            bmb.addBuilder(builder);
+        }
+        bmb.setOnClickListener(this);
 
         Intent intent = getIntent();
         if (intent.getBooleanExtra("signal", false)) {
@@ -36,6 +91,9 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
             sum += Double.toString(bill.getSum());
             displaySum.setText(sum);
             remarks.setText(bill.getRemarks());
+            displayClassification.setText(bill.getClassificationName());
+            displayClassification.setTextColor(res.getColor(R.color.colorWhite));
+            displayClassificationColor.setBackgroundColor(bill.getSetClassificationColor());
         }
 
         Button back = (Button) findViewById(R.id.title_back);
@@ -251,6 +309,8 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
                             bill.setTime();
                             bill.setRemarks(remarks.getText().toString());
                             bill.setSum(getSumByDouble(sum));
+                            bill.setClassificationName(classification.getClassificationName());
+                            bill.setSetClassificationColor(classification.getClassificationColor());
                             bill.save();
 
                             Intent intent = getIntent();
@@ -258,7 +318,7 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
                                 int billPosition = intent.getIntExtra("billPosition", 0);
                                 Bill oldBill = MyView.bills.get(billPosition);
                                 int oldBillId = oldBill.getId();
-                                DataSupport.deleteAll(Bill.class, "id = ?", Integer.toString(oldBillId));
+                                LitePal.deleteAll(Bill.class, "id = ?", Integer.toString(oldBillId));
                             }
 
                             Toast.makeText(AddOne.this, "保存成功", Toast.LENGTH_SHORT).show();
@@ -296,6 +356,9 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
                     }
                 });
                 dialog.show();
+                break;
+            case R.id.add_one_bmb:
+                bmb.boom();
                 break;
             default:
                 break;

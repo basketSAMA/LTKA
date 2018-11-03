@@ -1,11 +1,19 @@
 package com.example.a92317.ltka;
 
-import org.litepal.crud.DataSupport;
+import org.litepal.crud.LitePalSupport;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Bill extends DataSupport{
+public class Bill extends LitePalSupport {
     private int id;
+    private double sum;
+    private String remarks;
+    private Date time;
+
+    private String classificationName;
+    private int setClassificationColor;
+
 
     public int getId() {
         return id;
@@ -14,10 +22,6 @@ public class Bill extends DataSupport{
     public void setId(int id) {
         this.id = id;
     }
-
-    private double sum;
-    private String remarks;
-    private Date time;
 
     public double getSum() {
         return sum;
@@ -43,5 +47,21 @@ public class Bill extends DataSupport{
 
     public void setTime(){
         time =  new Date(System.currentTimeMillis());
+    }
+
+    public String getClassificationName() {
+        return classificationName;
+    }
+
+    public void setClassificationName(String classificationName) {
+        this.classificationName = classificationName;
+    }
+
+    public int getSetClassificationColor() {
+        return setClassificationColor;
+    }
+
+    public void setSetClassificationColor(int setClassificationColor) {
+        this.setClassificationColor = setClassificationColor;
     }
 }

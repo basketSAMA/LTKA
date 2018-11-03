@@ -8,4 +8,13 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorTransparent">#00000000</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="colorDiet">#FFB90F</color>
+    <color name="colorStudy">#87CEFA</color>
+    <color name="colorEntertainment">#EE6363</color>
+    <color name="colorTraffic">#D15FEE</color>
+    <color name="colorHealth">#66CDAA</color>
+    <color name="colorHouse">#1E90FF</color>
+    <color name="colorFavor">#CD2626</color>
+    <color name="colorElse">#C9C9C9</color>
 </resources>

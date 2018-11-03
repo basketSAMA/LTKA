@@ -87,12 +87,10 @@ public class Text extends BaseActivity implements View.OnClickListener,AdapterVi
             case R.id.my_view:
                 Intent intentV=new Intent(Text.this,MyView.class);
                 startActivity(intentV);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 break;
             case R.id.mine:
                 Intent intentM=new Intent(Text.this,Mine.class);
                 startActivity(intentM);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             default:
                 break;

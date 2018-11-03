@@ -4,6 +4,40 @@
 
     <integer name="slide_duration">300</integer>
 
+    <string name="classification_diet">饮食</string>
+    <string name="classification_study">学习</string>
+    <string name="classification_entertainment">娱乐</string>
+    <string name="classification_traffic">交通</string>
+    <string name="classification_health">健康</string>
+    <string name="classification_house">居住</string>
+    <string name="classification_favor">人情</string>
+    <string name="classification_else">其它</string>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <string name="article1_name">6个习惯让你理财成功一半</string>
     <string name="article1_author">佚名</string>
     <string name="article1_contents">

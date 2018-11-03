@@ -5,6 +5,7 @@
 
     <application
         android:name="org.litepal.LitePalApplication"
+
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="爱记账"
@@ -36,6 +37,7 @@
         <activity android:name=".Settings" />
         <activity android:name=".BillDetails"/>
         <activity android:name=".ArticleDetails"/>
+
     </application>
 
 </manifest>

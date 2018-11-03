@@ -29,6 +29,7 @@ public class BillAdapter extends ArrayAdapter<Bill> {
             viewHolder.billSum=(TextView)view.findViewById(R.id.my_view_sum);
             viewHolder.billRemarks=(TextView)view.findViewById(R.id.my_view_remarks);
             viewHolder.billTime=(TextView)view.findViewById(R.id.my_view_time);
+            viewHolder.billClassification=(TextView)view.findViewById(R.id.my_view_classification);
             view.setTag(viewHolder);
         }else {
             view=convertView;
@@ -37,6 +38,8 @@ public class BillAdapter extends ArrayAdapter<Bill> {
         viewHolder.billSum.setText(Double.toString(bill.getSum()));
         viewHolder.billRemarks.setText(bill.getRemarks());
         viewHolder.billTime.setText(bill.getTime());
+        viewHolder.billClassification.setText(bill.getClassificationName());
+        viewHolder.billClassification.setTextColor(bill.getSetClassificationColor());
         return view;
     }
 
@@ -44,5 +47,6 @@ public class BillAdapter extends ArrayAdapter<Bill> {
         TextView billSum;
         TextView billRemarks;
         TextView billTime;
+        TextView billClassification;
     }
 }

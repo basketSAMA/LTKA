@@ -24,7 +24,18 @@
         android:textSize="50sp"
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:layout_marginTop="80dp"/>
+        android:layout_marginTop="80dp" />
+
+    <TextView
+        android:id="@+id/bill_classification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="italic|bold"
+        android:textSize="30dp"
+        android:text="cfc"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/bill_sum"
+        android:layout_marginTop="90dp"/>
 
     <LinearLayout
         android:layout_below="@id/money_symbol"
