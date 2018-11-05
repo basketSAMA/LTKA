@@ -30,5 +30,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'org.litepal.android:java:3.0.0'
     implementation 'com.nightonke:boommenu:2.1.1'
-//    implementation 'com.android.support:percent:26.0.0-alpha1'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0-alpha'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation files('libs/Msc.jar')
+    implementation files('libs/Sunflower.jar')
 }

@@ -84,7 +84,20 @@
                 android:layout_weight="1"
                 android:hint="写点备注..."
                 android:inputType="text"
+                android:visibility="visible"
+                android:enabled="true"
+                android:cursorVisible="true"
                 android:maxLines="1"/>
+
+            <Button
+                android:id="@+id/add_one_speech"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:text="喵💬"
+                android:textSize="15dp"
+                android:background="@color/colorTransparent"
+                android:textColor="@color/colorTextGreen"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <LinearLayout
@@ -136,6 +149,7 @@
                     style="?android:attr/buttonBarButtonStyle"
                     android:id="@+id/add_one_delete"
                     android:text="删除"
+                    android:textSize="30dp"
                     android:textStyle="bold"
                     android:textColor="#ff0000"
                     android:layout_width="0dp"
@@ -146,6 +160,7 @@
                     style="?android:attr/buttonBarButtonStyle"
                     android:id="@+id/add_one_save"
                     android:text="保存"
+                    android:textSize="30dp"
                     android:textStyle="bold"
                     android:textColor="#336600"
                     android:layout_width="0dp"

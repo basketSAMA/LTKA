@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.text.Layout;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -14,6 +14,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.iflytek.cloud.RecognizerResult;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechRecognizer;
+import com.iflytek.cloud.SpeechUtility;
+import com.iflytek.cloud.ui.RecognizerDialog;
+import com.iflytek.cloud.ui.RecognizerDialogListener;
 import com.nightonke.boommenu.BoomButtons.OnBMClickListener;
 import com.nightonke.boommenu.BoomButtons.TextInsideCircleButton;
 import com.nightonke.boommenu.BoomMenuButton;
@@ -23,31 +32,41 @@ import org.litepal.LitePal;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.iflytek.cloud.SpeechConstant.APPID;
+
 public class AddOne extends BaseActivity implements View.OnClickListener {
 
     private int ADD = 1, SUBT = 2;
 
     private TextView displaySum;
     private EditText remarks;
+    private Button speech;
     private TextView displayClassification;
     private View displayClassificationColor;
+
+//    // 听写结果字符串（多个Json的列表字符串）
+//    private String dictationResultStr = "[";
 
     private String sum = "";
     private BillClassification classification;
 
     private BoomMenuButton bmb;
 
-    private List<Bill> tests;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_one);
+//        // 语音配置对象初始化
+//        SpeechUtility.createUtility(AddOne.this, APPID
+//                + "=5bdfa742");
 
         displaySum = (TextView) findViewById(R.id.display_sum);
         remarks = (EditText) findViewById(R.id.add_one_remarks);
+        speech = (Button) findViewById(R.id.add_one_speech);
         displayClassification = (TextView)findViewById(R.id.add_one_classification);
         displayClassificationColor = (View) findViewById(R.id.add_one_color);
+
+        speech.setOnClickListener(this);
 
         Resources res = this.getResources();
         classification = new BillClassification(res.getString(R.string.classification_diet), res.getColor(R.color.colorDiet));
@@ -91,6 +110,7 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
             sum += Double.toString(bill.getSum());
             displaySum.setText(sum);
             remarks.setText(bill.getRemarks());
+            remarks.setSelection(bill.getRemarks().length());
             displayClassification.setText(bill.getClassificationName());
             displayClassification.setTextColor(res.getColor(R.color.colorWhite));
             displayClassificationColor.setBackgroundColor(bill.getSetClassificationColor());
@@ -359,6 +379,65 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.add_one_bmb:
                 bmb.boom();
+                break;
+            case R.id.add_one_speech:
+//                dictationResultStr = "[";
+//
+//                // 1.创建SpeechRecognizer对象，第2个参数：本地听写时传InitListener
+//                SpeechRecognizer mIat = SpeechRecognizer.createRecognizer(AddOne.this, null);
+//
+//                // 交互动画
+//                RecognizerDialog iatDialog = new RecognizerDialog(AddOne.this, null);
+//
+//                // 2.设置听写参数，详见《科大讯飞MSC API手册(Android)》SpeechConstant类
+//                mIat.setParameter(SpeechConstant.DOMAIN, "iat"); // domain:域名
+//                mIat.setParameter(SpeechConstant.LANGUAGE, "zh_cn");
+//                mIat.setParameter(SpeechConstant.ACCENT, "mandarin"); // mandarin:普通话
+//
+//                //3.开始听写
+//                iatDialog.setListener(new RecognizerDialogListener() {
+//                    @Override
+//                    public void onResult(RecognizerResult results, boolean isLast) {
+//                        // TODO 自动生成的方法存根
+//                        // Log.d("Result", results.getResultString());
+//                        // contentTv.setText(results.getResultString());
+//                        if (!isLast) {
+//                            dictationResultStr += results.getResultString() + ",";
+//                        } else {
+//                            dictationResultStr += results.getResultString() + "]";
+//                        }
+//                        if (isLast) {
+//                            // 解析Json列表字符串
+//                            Gson gson = new Gson();
+//                            List<DictationResult> dictationResultList = gson
+//                                    .fromJson(dictationResultStr,
+//                                            new TypeToken<List<DictationResult>>() {
+//                                            }.getType());
+//                            String finalResult = "";
+//                            for (int i = 0; i < dictationResultList.size() - 1; i++) {
+//                                finalResult += dictationResultList.get(i)
+//                                        .toString();
+//                            }
+//                            remarks.setText(finalResult);
+//
+//                            //获取焦点
+//                            remarks.requestFocus();
+//
+//                            //将光标定位到文字最后，以便修改
+//                            remarks.setSelection(finalResult.length());
+//
+//                            Log.d("From reall phone", finalResult);
+//                        }
+//                    }
+//                    @Override
+//                    public void onError(SpeechError error) {
+//                        // TODO 自动生成的方法存根
+//                        error.getPlainDescription(true);
+//                    }
+//                });
+//
+//                // 开始听写
+//                iatDialog.show();
                 break;
             default:
                 break;
