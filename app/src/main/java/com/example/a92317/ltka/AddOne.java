@@ -111,6 +111,8 @@ public class AddOne extends BaseActivity implements View.OnClickListener {
             displaySum.setText(sum);
             remarks.setText(bill.getRemarks());
             remarks.setSelection(bill.getRemarks().length());
+            classification.setClassificationName(bill.getClassificationName());
+            classification.setClassificationColor(bill.getSetClassificationColor());
             displayClassification.setText(bill.getClassificationName());
             displayClassification.setTextColor(res.getColor(R.color.colorWhite));
             displayClassificationColor.setBackgroundColor(bill.getSetClassificationColor());
