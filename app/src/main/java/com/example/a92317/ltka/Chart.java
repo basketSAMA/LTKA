@@ -41,24 +41,6 @@ public class Chart extends BaseActivity {
         });
 
         showPieChart();
-//        showTest();
-    }
-
-    private void showTest()
-    {
-        pieChart = (PieChart)findViewById(R.id.pie_chart);
-        List<PieEntry> strings = new ArrayList<>();
-        strings.add(new PieEntry(30f,"aaa"));
-        strings.add(new PieEntry(70f,"bbb"));
-        PieDataSet dataSet = new PieDataSet(strings,"Label");
-        ArrayList<Integer> colors = new ArrayList<Integer>();
-        colors.add(getResources().getColor(R.color.colorDiet));
-        colors.add(getResources().getColor(R.color.colorStudy));
-        dataSet.setColors(colors);
-        PieData pieData = new PieData(dataSet);
-        pieData.setDrawValues(true);
-        pieChart.setData(pieData);
-        pieChart.invalidate();
     }
 
     private void showPieChart()
@@ -167,6 +149,6 @@ public class Chart extends BaseActivity {
         legend.setYOffset(10f);  //图例的y偏移量
         legend.setXOffset(10f);  //图例x的偏移量
         legend.setTextColor(Color.parseColor("#a1a1a1")); //图例文字的颜色
-        legend.setTextSize(13);  //图例文字的大小
+        legend.setTextSize(15);  //图例文字的大小
     }
 }

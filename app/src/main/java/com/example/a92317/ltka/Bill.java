@@ -40,7 +40,7 @@ public class Bill extends LitePalSupport {
     }
 
     public String getTime() {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd HH:mm");
         String str = formatter.format(time);
         return str;
     }

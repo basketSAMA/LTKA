@@ -75,8 +75,8 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
-                        // When the boom-button corresponding this builder is clicked.
-                        Toast.makeText(MyView.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+                        Intent intentA = new Intent(MyView.this,Analysis.class);
+                        startActivity(intentA);
                     }
                 });
         bmb.addBuilder(builder2);

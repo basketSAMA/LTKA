@@ -63,7 +63,8 @@
         <activity android:name=".Settings" />
         <activity android:name=".BillDetails" />
         <activity android:name=".ArticleDetails" />
-        <activity android:name=".Chart"></activity>
+        <activity android:name=".Chart" />
+        <activity android:name=".Analysis"></activity>
     </application>
 
 </manifest>
