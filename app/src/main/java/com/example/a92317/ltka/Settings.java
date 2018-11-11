@@ -27,14 +27,15 @@ public class Settings extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        userImage = (ImageView)findViewById(R.id.display_user_image);
         userName = (EditText)findViewById(R.id.display_user_name);
+        userImage = (ImageView)findViewById(R.id.display_user_image);
         SharedPreferences preferences = getSharedPreferences("data",MODE_PRIVATE);
-        uImage = preferences.getInt("uImage",R.drawable.d1);
         uName = preferences.getString("uName","user");
+        uImage = preferences.getInt("uImage",R.drawable.d1);
+        userName.setText(uName);
+        userName.setSelection(uName.length());
         Drawable d = this.getResources().getDrawable(uImage);
         userImage.setImageDrawable(d);
-        userName.setText(uName);
 
         Button save = (Button)findViewById(R.id.settings_save);
         Button back = (Button)findViewById(R.id.title_back);

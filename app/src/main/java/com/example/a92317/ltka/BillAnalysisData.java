@@ -15,20 +15,19 @@ public class BillAnalysisData {
         this.value = value;
         this.label = label;
         this.color = color;
-        this.sum = "在" + label + "上总共花费了" + value + "元";
+        this.sum = "在" + label + "上总共花费了 " + value + " 元";
         DecimalFormat df = new DecimalFormat("#.##");
-        this.aver = "平均" + df.format(value/dd) + "元/天";
+        this.aver = "平均 " + df.format(value/dd) + " 元/天";
         this.anal = anal;
     }
 
-    public BillAnalysisData(String label)
+    public BillAnalysisData(String label,String sum,String aver,String anal)
     {
         this.value = 0;
         this.label = label;
-        this.color = R.color.colorBlack;
-        this.sum = "";
-        this.aver = "";
-        this.anal = "";
+        this.sum = sum;
+        this.aver = aver;
+        this.anal = anal;
     }
 
     public float getValue() {

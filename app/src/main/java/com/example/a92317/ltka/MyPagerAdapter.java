@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -31,24 +32,24 @@ public class MyPagerAdapter extends PagerAdapter {
         TextView sum = (TextView) view.findViewById(R.id.page_item_sum);
         TextView aver = (TextView) view.findViewById(R.id.page_item_aver);
         TextView anal = (TextView) view.findViewById(R.id.page_item_anal);
+        RelativeLayout rl = (RelativeLayout) view.findViewById(R.id.rl);
         if(position == 0)
         {
             left.setText("");
-            sum.setText("");
-            aver.setText("");
-            anal.setText("");
             text.setTextSize(20);
+            rl.setBackgroundResource(R.drawable.analysis_first);
         }
-        if(position == getCount() - 1)
+        else if(position == getCount() - 1)
         {
             right.setText("");
-            sum.setText("");
-            aver.setText("");
-            anal.setText("");
             text.setTextSize(20);
+            rl.setBackgroundResource(R.drawable.analysis_last);
+        }
+        else
+        {
+            text.setTextColor(mData.get(position).getColor());
         }
         text.setText(mData.get(position).getLabel());
-        text.setTextColor(mData.get(position).getColor());
         sum.setText(mData.get(position).getSum());
         aver.setText(mData.get(position).getAver());
         anal.setText(mData.get(position).getAnal());

@@ -71,7 +71,7 @@ public class MyView extends BaseActivity implements View.OnClickListener,Adapter
         HamButton.Builder builder2 = new HamButton.Builder()
                 .normalImageRes(R.drawable.ic_analysis)
                 .normalText("分析")
-                .subNormalText("想测测你是什么类型吗喵")
+                .subNormalText("想深入了解自己吗喵")
                 .listener(new OnBMClickListener() {
                     @Override
                     public void onBoomButtonClick(int index) {
