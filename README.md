@@ -7,3 +7,7 @@
 ![设置](https://github.com/basketSAMA/LTKA/raw/master/Screenshots/5.png)
 ![版本](https://github.com/basketSAMA/LTKA/raw/master/Screenshots/6.png)
 ![记账](https://github.com/basketSAMA/LTKA/raw/master/Screenshots/7.png)
+![图表](https://github.com/basketSAMA/LTKA/raw/master/Screenshots/8.png)
+![分析开头](https://github.com/basketSAMA/LTKA/raw/master/Screenshots/9.png)
+![分析主干](https://github.com/basketSAMA/LTKA/raw/master/Screenshots/10.png)
+![分析末尾](https://github.com/basketSAMA/LTKA/raw/master/Screenshots/11.png)
